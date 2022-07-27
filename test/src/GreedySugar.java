@@ -8,7 +8,6 @@ public class GreedySugar {
         int rtn = 0;
         loop1:
         for(int i=0; i<=(N/3); i++){
-            loop2:
             for(int j=0; j<=(N/5); j++){
                 if(((i*3)+(j*5))==N){
                     rtn = i+j;
