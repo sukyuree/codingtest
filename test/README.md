@@ -3,3 +3,4 @@
 ## Daily Coding Test
 
 - 20220726 [CLEAR]
+- 20220727 [CLEAR]
