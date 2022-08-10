@@ -1,4 +1,4 @@
-public class MakeDecimal{
+public class MakePrimeNumber{
     public static void main(String[] args){
     }
 }
