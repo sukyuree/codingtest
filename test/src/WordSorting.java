@@ -10,7 +10,8 @@ public class WordSorting {
         List<String> wordlist = new ArrayList<>();
         
         for(int i = 0; i < N; i++){
-            wordlist.add(br.readLine());
+            String word = br.readLine();
+            if(!wordlist.contains(word)) wordlist.add(word);
         }
 
         wordlist.sort(Comparator.comparing(String::length).thenComparing(Comparator.naturalOrder()));
