@@ -1,3 +1,6 @@
 ##bin파일 무시
 
 /bin
+
+##연습장 무시
+/src/test.java
