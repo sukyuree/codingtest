@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class AbsoluteValueHeap{
+public class Main_bj_11286_절댓값힙{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
