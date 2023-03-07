@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.*;
 
 public class Main_bj_1107_리모컨{
-    static int currentChanel = 100;
     static int N,M;
     static boolean[] broken;
     static StringBuilder sb = new StringBuilder();
@@ -12,8 +11,7 @@ public class Main_bj_1107_리모컨{
         N = Integer.parseInt(br.readLine());
         M = Integer.parseInt(br.readLine());
         broken = new boolean[10];
-        int click = 0;
-        int click2 = 0;
+
         if(M!=0){
             StringTokenizer st = new StringTokenizer(br.readLine());
             for(int i = 0; i < M; i++){
@@ -21,30 +19,13 @@ public class Main_bj_1107_리모컨{
             }
         }
         
-        int difMin = 1000000;
+        int difMin = Integer.MAX_VALUE;
         for(int i = 0; i <= 999999; i++){
             if(canMake(i)){
-                if(Math.abs(difMin-N)>Math.abs(i-N)) difMin = i;
+                difMin = Math.min(difMin,Integer.toString(i).length()+Math.abs(i-N));
             }
         }
-
-        click = Integer.toString(difMin).length();
-        
-        if(difMin>N){
-            while(difMin!=N){
-                difMin--;
-                click++;   
-            }
-        }
-        else if(difMin<N){
-            while(difMin!=N){
-                difMin++;
-                click++;
-            }
-        }
-
-        click2 = Math.abs(N-currentChanel);
-        System.out.println(Math.min(click,click2));
+        System.out.println(Math.min(difMin,Math.abs(N-100)));
         
     }
 
