@@ -14,7 +14,7 @@ class Edge {
 }
 
 public class Main_bj_1865_웜홀 {
-  final static int INF = Integer.MIN_VALUE;
+  final static long INF = Long.MAX_VALUE;
   static int N, M, W;
   static List<Edge> list;
   static long[] dist;
@@ -32,7 +32,7 @@ public class Main_bj_1865_웜홀 {
 
       list = new ArrayList<>();
       dist = new long[N + 1];
-      Arrays.fill(dist, INF);
+      
 
       for (int i = 0; i < M; i++) {
         st = new StringTokenizer(br.readLine());
@@ -57,9 +57,11 @@ public class Main_bj_1865_웜홀 {
 
   static boolean BellmanFord() {
     for (int i = 1; i <= N; i++) {
+      Arrays.fill(dist, INF);
       boolean isUpdate = false;
       dist[i] = 0;
       for (int j = 1; j < N; j++) {
+        isUpdate = false;
         for (Edge edge : list) {
           if (dist[edge.start] != INF && dist[edge.end] > dist[edge.start] + edge.time) {
             dist[edge.end] = dist[edge.start] + edge.time;
