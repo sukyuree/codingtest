@@ -5,7 +5,7 @@ public class Main_bj_10830_행렬제곱 {
   static final int MOD = 1000;
   static int N;
   static long B;
-
+  static int[][] A;
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());
@@ -13,30 +13,31 @@ public class Main_bj_10830_행렬제곱 {
     N = Integer.parseInt(st.nextToken());
     B = Long.parseLong(st.nextToken());
 
-    int[][] A = new int[N][N];
+    A = new int[N][N];
     for (int i = 0; i < N; i++) {
       st = new StringTokenizer(br.readLine());
       for (int j = 0; j < N; j++) {
         A[i][j] = Integer.parseInt(st.nextToken());
       }
     }
+
     int[][] result = pow(A,B);
     for (int i = 0; i < N; i++) {
       for (int j = 0; j < N; j++) {
-        sb.append(result[i][j] + " ");
+        sb.append(result[i][j]%MOD + " ");
       }
       sb.append("\n");
     }
     System.out.print(sb.toString());
   }
 
-  public static int[][] pow(int[][] A, long count) {
+  public static int[][] pow(int[][] arr, long count) {
  
 		if(count == 1L) {
-			return A;
+			return arr;
 		}
 		
-		int[][] ret = pow(A, count / 2);
+		int[][] ret = pow(arr, count / 2);
 		
 		ret = multiply(ret, ret);
 		
@@ -54,8 +55,7 @@ public class Main_bj_10830_행렬제곱 {
 		for(int i = 0; i < N; i++) {
 			for(int j = 0; j < N; j++) {
 				for(int k = 0; k < N; k++) {
-					
-					ret[i][j] += arr1[i][k] * arr2[k][j];
+					ret[i][j] += (arr1[i][k] * arr2[k][j]);
 					ret[i][j] %= MOD;	
 				}
 			}
